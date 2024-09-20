@@ -1,0 +1,46 @@
+.container {
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.titles {
+    padding-bottom: 10px;
+}
+
+body {
+    background-image: url(images/background_image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#titular_1 {
+    color: yellow;
+}
+
+#titular_2 {
+    color: blue
+}
+
+#titular_3 {
+    color: red;
+}
+
+#circle {
+    border-radius: 50%;
+}
+
+#yellowBack {
+    background-color: yellow;
+}
+
+#blueBack {
+    background-color: darkblue;
+}
+
+#redBack {
+    background-color: darkred;
+}
+
+#whiteLetter {
+    color: white
+}
