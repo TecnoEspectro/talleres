@@ -21,9 +21,10 @@
 </head>
 <header style="padding-bottom: 20px;">
     <div class="row bg-body-tertiary">
-        <div class="col" id="yellowBack">
-            <img src="https://images7.memedroid.com/images/UPLOADED958/6484e69ad7839.jpeg" width="70px" height="52px"
-                alt="logo_seleccion_colombia" style="padding-left: 20px; padding-top: 2px;">
+        <div class="col">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/c1794654867975.596d3316cc79e.png"
+                width="70px" height="52px" alt="logo"
+                style="padding-left: 10px; padding-top: 10px; border-radius: 50%;">
         </div>
     </div>
 </header>
@@ -39,31 +40,37 @@
                 aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9CefLIwnJNJEReZUB9ePvjyIrjR_vCKBF9g&s"
+                <img src="https://wallpapers.com/images/hd/high-resolution-gaming-tbxlpaf0pm4qbn8q.jpg"
                     class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9CefLIwnJNJEReZUB9ePvjyIrjR_vCKBF9g&s"
+                <img src="https://wallpapergod.com/images/hd/4k-gaming-5693X3300-wallpaper-la9dw4cb3b1qv995.jpeg"
                     class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9CefLIwnJNJEReZUB9ePvjyIrjR_vCKBF9g&s"
+                <img src="https://wallpapercave.com/wp/wp5637824.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://w0.peakpx.com/wallpaper/300/726/HD-wallpaper-batman-gaming-background-video-game-game-abstract.jpg"
                     class="d-block w-100" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
     </div>
 
 
@@ -83,23 +90,43 @@
                     <form class="row g-3">
                         <div class="col-md-4">
                             <label for="validationDefault01" class="form-label">Nota 1</label>
-                            <input type="number" class="form-control" id="validationDefault01" value="" required>
+                            <input type="number" class="form-control" id="n1" value="" required>
                         </div>
                         <div class="col-md-4">
                             <label for="validationDefault02" class="form-label">Nota 2</label>
-                            <input type="number" class="form-control" id="validationDefault02" value="" required>
+                            <input type="number" class="form-control" id="n2" value="" required>
                         </div>
                         <div class="col-md-4">
                             <label for="validationDefault03" class="form-label">Nota 3</label>
-                            <input type="number" class="form-control" id="validationDefault02" value="" required>
+                            <input type="number" class="form-control" id="n3" value="" required>
                         </div>
                         <div class="col-md-4">
                             <label for="validationDefault04" class="form-label">Examen Final</label>
-                            <input type="number" class="form-control" id="validationDefault02" value="" required>
+                            <input type="number" class="form-control" id="n4" value="">
                         </div>
 
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Calcular</button>
+                        <div class="container text-center" style="padding-top: 20px;">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button" onclick="setenta()">Calcular
+                                            70%</button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button" onclick="treinta()">Calcular
+                                            30%</button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button" onclick="notaFinal()">Calcular
+                                            Nota
+                                            Final</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
 
@@ -125,16 +152,14 @@
                                 <form class="row g-3">
                                     <div class="col-md-4">
                                         <label for="validationDefault01" class="form-label">Valor 1</label>
-                                        <input type="number" class="form-control" id="validationDefault01" value=""
-                                            required>
+                                        <input type="number" class="form-control" id="s1" value="" required>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="validationDefault02" class="form-label">Valor 2</label>
-                                        <input type="number" class="form-control" id="validationDefault02" value=""
-                                            required>
+                                        <input type="number" class="form-control" id="s2" value="" required>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary" type="submit">Calcular</button>
+                                        <button class="btn btn-primary" type="button" onclick="suma()">Calcular</button>
                                     </div>
                                 </form>
                             </div>
@@ -143,106 +168,217 @@
                 </div>
 
                 <div class="col">
-                <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseWidthExample2" aria-expanded="false"
-                        aria-controls="collapseWidthExample">
-                        Resta
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-horizontal" id="collapseWidthExample2">
-                        <div class="card card-body" style="width: 300px;">
-                            <form class="row g-3">
-                                <div class="col-md-4">
-                                    <label for="validationDefault01" class="form-label">Edad 1</label>
-                                    <input type="number" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationDefault02" class="form-label">Edad 2</label>
-                                    <input type="number" class="form-control" id="validationDefault02" value=""
-                                        required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationDefault03" class="form-label">Edad 3</label>
-                                    <input type="number" class="form-control" id="validationDefault03" value=""
-                                        required>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Calcular</button>
-                                </div>
-                            </form>
+                    <p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseWidthExample2" aria-expanded="false"
+                            aria-controls="collapseWidthExample">
+                            Resta
+                        </button>
+                    </p>
+                    <div style="min-height: 120px;">
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample2">
+                            <div class="card card-body" style="width: 300px;">
+                                <form class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="validationDefault01" class="form-label">Edad 1</label>
+                                        <input type="number" class="form-control" id="r1" value="" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationDefault02" class="form-label">Edad 2</label>
+                                        <input type="number" class="form-control" id="r2" value="" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationDefault03" class="form-label">Edad 3</label>
+                                        <input type="number" class="form-control" id="r3" value="" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button"
+                                            onclick="resta()">Calcular</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col">
-                <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseWidthExample3" aria-expanded="false"
-                        aria-controls="collapseWidthExample">
-                        Multiplicar
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-horizontal" id="collapseWidthExample3">
-                        <div class="card card-body" style="width: 300px;">
-                            <form class="row g-3">
-                                <div class="col-md-4">
-                                    <label for="validationDefault01" class="form-label">Numero 1</label>
-                                    <input type="number" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationDefault02" class="form-label">Numero 2</label>
-                                    <input type="number" class="form-control" id="validationDefault02" value=""
-                                        required>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Calcular</button>
-                                </div>
-                            </form>
+                <div class="col">
+                    <p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseWidthExample3" aria-expanded="false"
+                            aria-controls="collapseWidthExample">
+                            Multiplicar
+                        </button>
+                    </p>
+                    <div style="min-height: 120px;">
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample3">
+                            <div class="card card-body" style="width: 300px;">
+                                <form class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="validationDefault01" class="form-label">Numero 1</label>
+                                        <input type="number" class="form-control" id="m1" value="" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationDefault02" class="form-label">Numero 2</label>
+                                        <input type="number" class="form-control" id="m2" value="" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button"
+                                            onclick="multiplicar()">Calcular</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col">
-                <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseWidthExample4" aria-expanded="false"
-                        aria-controls="collapseWidthExample">
-                        Dividir
-                    </button>
-                </p>
-                <div style="min-height: 120px;">
-                    <div class="collapse collapse-horizontal" id="collapseWidthExample4">
-                        <div class="card card-body" style="width: 300px;">
-                            <form class="row g-3">
-                                <div class="col-md-4">
-                                    <label for="validationDefault01" class="form-label">Numero 1</label>
-                                    <input type="number" class="form-control" id="validationDefault01" value=""
-                                        required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="validationDefault02" class="form-label">Numero 2</label>
-                                    <input type="number" class="form-control" id="validationDefault02" value=""
-                                        required>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Calcular</button>
-                                </div>
-                            </form>
+                <div class="col">
+                    <p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseWidthExample4" aria-expanded="false"
+                            aria-controls="collapseWidthExample">
+                            Dividir
+                        </button>
+                    </p>
+                    <div style="min-height: 120px;">
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample4">
+                            <div class="card card-body" style="width: 300px;">
+                                <form class="row g-3">
+                                    <div class="col-md-4">
+                                        <label for="validationDefault01" class="form-label">Numero 1</label>
+                                        <input type="number" class="form-control" id="d1" value="" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationDefault02" class="form-label">Numero 2</label>
+                                        <input type="number" class="form-control" id="d2" value="" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="button"
+                                            onclick="dividir()">Calcular</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
 </body>
+
+<script>
+    function setenta() {
+
+        var n1 = parseFloat(document.getElementById("n1").value);
+        var n2 = parseFloat(document.getElementById("n2").value);
+        var n3 = parseFloat(document.getElementById("n3").value);
+
+        var setenta = ((n1 + n2 + n3) / 3) * 0.7;
+
+        alert("El resultado es " + setenta)
+
+    }
+
+    function treinta() {
+
+        var n4 = parseFloat(document.getElementById("n4").value);
+
+        var treinta = (n4 * 0.3);
+
+        alert("El resultado es " + treinta);
+
+    }
+
+    function notaFinal() {
+
+        var n1 = parseFloat(document.getElementById("n1").value);
+        var n2 = parseFloat(document.getElementById("n2").value);
+        var n3 = parseFloat(document.getElementById("n3").value);
+        var n4 = parseFloat(document.getElementById("n4").value);
+
+        var notaFinal = (((n1 + n2 + n3) / 3) * 0.7) + (n4 * 0.3);
+
+        alert("El resultado es " + notaFinal)
+
+        if (notaFinal > 2.9) {
+            alert("Pasaste");
+        } else {
+            alert("No pasaste");
+        }
+
+        if (notaFinal > 1.9) {
+            alert("Puedes Habilitar La Materia");
+        }
+
+    }
+
+    function suma() {
+
+        var s1 = parseInt(document.getElementById("s1").value);
+        var s2 = parseInt(document.getElementById("s2").value);
+
+        var suma = s1 + s2;
+
+        alert("El resultado es " + suma)
+
+    }
+
+    function resta() {
+
+        var r1 = parseInt(document.getElementById("r1").value);
+        var r2 = parseInt(document.getElementById("r2").value);
+        var r3 = parseInt(document.getElementById("r3").value);
+
+        var resta1 = r1-r2;
+        var resta2 = r1-r3;
+        var resta3 = r2-r3;
+
+        if (0>resta1) {
+            resta1=-(resta1)
+        }
+        if (0>resta2) {
+            resta2=-(resta2)
+        }
+        if (0>resta3) {
+            resta3=-(resta3)
+        }
+
+        alert("La Diferencia entre las Edades 1 y 2 es de " + resta1)
+        alert("La Diferencia entre las Edades 1 y 3 es de " + resta2)
+        alert("La Diferencia entre las Edades 2 y 3 es de " + resta3)
+
+    }
+
+    function multiplicar() {
+
+        var m1 = parseInt(document.getElementById("m1").value);
+        var m2 = parseInt(document.getElementById("m2").value);
+
+        if (m1 % 2 == 0 && m2 % 2 == 0) {
+            var multiplicar = m1 * m2;
+        } else {
+            alert("Los numeros deben ser pares");
+        }
+
+        alert("El resultado es " + multiplicar)
+
+    }
+
+    function dividir() {
+
+        var d1 = parseInt(document.getElementById("d1").value);
+        var d2 = parseInt(document.getElementById("d2").value);
+
+        if (d2 == 0 || d1 == 0) {
+            alert("No se puede dividir por 0");
+        } else {
+            var dividir = d1 / d2;
+        }
+
+        alert("El resultado es " + dividir)
+
+    }
+
+</script>
 
 </html>
