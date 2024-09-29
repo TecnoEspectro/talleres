@@ -14,98 +14,7 @@
 
     <title>Gamer Events-Inscripcion</title>
 
-    <script>
-
-        document.getElementById("eventos").style.display = "none";
-        document.getElementById("validacionCod").style.display = "none";
-        document.getElementById("alerta").style.display = "none";
-
-        var codUsed = false
-        var cod = "codigo1";
-
-        function calcularEdad() {
-            var hoy = new Date();
-            var cumpleaños = new Date(document.getElementById("fecha").value);
-            var edad = hoy.getFullYear() - cumpleaños.getFullYear();
-            var mes = hoy.getMonth() - cumpleaños.getMonth();
-
-            if (mes < 0 || (mes === 0 && hoy.getDate() < cumpleaños.getDate())) {
-                edad--;
-            }
-            document.getElementById("edad").value = edad;
-
-
-
-            if (edad >= 15) {
-                document.getElementById("eventos").style.display = "block";
-            } else {
-                document.getElementById("eventos").style.display = "none";
-            }
-        }
-
-        function precioevento() {
-            if (document.getElementById("ev").value == 1) {
-
-                document.getElementById("precio").value = 0;
-
-            } else if (document.getElementById("ev").value == 2) {
-
-                document.getElementById("precio").value = 10000;
-
-            } else {
-                document.getElementById("precio").value = 50000;
-            }
-        }
-
-        function codigo() {
-            var codUsed = false
-            var cod = "codigo1";
-            var total;
-            if (document.getElementById("codigoProm").value == cod && codUsed == false) {
-                total = parseInt(document.getElementById("precio").value) * 0.10;
-                total = parseInt(document.getElementById("precio").value) - total;
-                var codUsed = true;
-            } else {
-                document.getElementById("validacionCod").value="El Codigo Promocional no Existe o ya ha Sido Usado";
-                document.getElementById("validacionCod").style.display = "block";
-                total = parseInt(document.getElementById("precio").value);
-            }
-            document.getElementById("resultado").value = total;
-
-
-        }
-
-        function descuentoUsado(){
-            var cod = "codigo1";
-            codUsed = false;
-            if (document.getElementById("codigoProm").value == cod && codUsed == false) {
-                codUsed = true;
-                document.getElementById("alerta").value="Se ha inscrito con exito usando un Codigo Promocional";
-                document.getElementById("alerta").style.display = "block";
-            }else if (codUsed==true){
-                document.getElementById("alerta").value="El Codigo Promocional ya ha sido usado";
-                document.getElementById("alerta").style.display = "block";
-            }else if(document.getElementById("codigoProm").value != cod && codUsed == false){
-                document.getElementById("alerta").value="Se ha Inscrito con exito";
-                document.getElementById("alerta").style.display = "block";
-            } else if(document.getElementById("codigoProm").value == null) {
-                document.getElementById("alerta").value="Se ha Inscrito con exito";
-                document.getElementById("alerta").style.display = "block";
-            }else{
-                "El Codigo Promocional no Existe"
-                document.getElementById("alerta").style.display = "none";
-            }
-        }
-
-        function minMaxDocument(){
-            var num = document.getElementById("documento").value;
-            if (num.length>11 || num.length<6) {
-                alert("NO ES UN DOCUMENTO VALIDO");
-            }
-            
-        }
-
-    </script>
+    <script src="script.js"></script>
 
 </head>
 
@@ -286,197 +195,124 @@
 
 <body>
 
-
-    <form class="was-validated">
-
-
-
-
-        <div class="mb-3">
-            <select class="form-select" required aria-label="select example">
-                <option value="">Tipo de Documento</option>
-                <option value="1">Tarjeta de Identidad</option>
-                <option value="2">Cedula de Ciudadania</option>
-            </select>
-            <div class="invalid-feedback">Seleccione un tipo de Documento</div>
-        </div>
-
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Documento</label>
-            <input type="number" class="form-control" id="documento" minlength="7" maxlength="11" onblur="minMaxDocument()" required>
-        </div>
-
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="validationDefault01" value="" required>
-        </div>
-
-        <div class="col-md-4"></div>
-        <label for="validationDefault01" class="form-label">Fecha de Nacimiento</label>
-        <input type="date" class="form-control" id="fecha" onblur="calcularEdad()">
-        </div>
-
-        <div class="col-md-4">
-            <label class="form-label">Edad</label>
-            <input type="text" class="form-control" id="edad" aria-label="Disabled input example" disabled>
-        </div>
-
-
-        <div class="accordion accordion-flush" id="eventos">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Eventos
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                              
-                              
-                        <select class="form-select" aria-label="Default select example" id="ev" onchange="precioevento()">
-                          <option selected>Seleccionar evento</option>
-                          <option value="1">Poesia</option>
-                          <option value="2">Cilcismo</option>
-                          <option value="3">Running</option>
-                         
-                        </select>
-                      
-                    
-                        <div class="form-floating mb-3">
-
-                          <input type="text"   class="form-control" id="precio" placeholder="Precio evento" disabled>
-  
-                          <label for="floatingInput">Precio</label>
-                        </div>  
-
-                        <div class="form-floating mb-3">
-
-                            <input type="text" class="form-control" id="codigoProm" onblur="codigo()">
-
-                            <label for="floatingInput">Codigo Promocional</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-
-                            <input type="text" class="form-control" id="resultado" aria-label="Disabled input example" disabled>
-
-                            <label for="floatingInput">Resultado</label>
-                        </div>
-
-
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-            <button class="btn btn-primary" type="button" onclick="descuentoUsado()">Guardar</button>
-        </div>
-        <div class="mb-3">
-            
-            <input type="text" class="form-control" id="alerta" disabled>
-            <input type="text" class="form-control" id="validacionCod" disabled>
-          </div> 
-    </form>
-
-
     <div class="container-fluid">
-          
+
         <div class="card text-center">
             <div class="card-body">
-              
 
-              <div class="card">
-                <div class="card-header">
-                 Formulario de Inscripcion
-                </div>
-                <div class="card-body">
+                <h5 class="card-title">Inscripcion</h5>
 
-                  <div class="form-floating mb-3">
-                  
-
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Seleccionar</option>
-                      <option value="1">Tarjeta de identidad</option>
-                      <option value="2">Cedula</option>
-                     
-                    </select>
-
-                    <label for="floatingInput">Tipo de documento</label>
-                  </div>
+                <form class="was-validated">
 
 
-                  <div class="form-floating mb-3">
-                    <input type="number"  minlength="7" maxlength="10" class="form-control" id="floatingInput" placeholder="Número">
-                    <label for="floatingInput">Número documento</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-                    <input type="text"   class="form-control" id="floatingInput" placeholder="Nombre" required>
-                    <label for="floatingInput">Nombre</label>
-                  </div>
-
-                  <div class="form-floating">
-                    <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Fecha de nacimiento"
-                     onblur="calcularEdad()">
-                    <label for="floatingPassword">Fecha de nacimiento</label>
-                  </div>
-
-                  <div class="form-floating mb-3">
-
-                    <input type="text"   class="form-control" id="edad" placeholder="Edad" >
-
-                    <label for="floatingInput">Edad</label>
-                  </div>
 
 
-                  <div class="accordion accordion-flush" id="eventos">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                         Eventos de interes
-                        </button>
-                      </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                          
-                          
-                          <select class="form-select" aria-label="Default select example" id="ev" onchange="precioevento()">
-                            <option selected>Seleccionar evento</option>
-                            <option value="1">Poesia</option>
-                            <option value="2">Cilcismo</option>
-                            <option value="3">Running</option>
-                           
-                          </select>
-                        
-                      
-                          <div class="form-floating mb-3">
+                    <div class="mb-3">
+                        <select class="form-select" required aria-label="select example" id="tipoDoc">
+                            <option value="">Tipo de Documento</option>
+                            <option value="1">Tarjeta de Identidad</option>
+                            <option value="2">Cedula de Ciudadania</option>
+                        </select>
+                        <div class="invalid-feedback">Seleccione un tipo de Documento</div>
+                    </div>
 
-                            <input type="text"   class="form-control" id="precio" placeholder="Precio evento" >
-    
-                            <label for="floatingInput">Precio</label>
-                          </div>  
-                      
+                    <div class="col-md-4">
+                        <label for="validationDefault01" class="form-label">Documento</label>
+                        <input type="number" class="form-control" id="documento" minlength="7" maxlength="11"
+                            onblur="minMaxDocument()" required>
+                        <div class="invalid-feedback">
+                            Por favor Ingrese un Numero de Documento.
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="documentoValidacion" disabled>
                         </div>
                     </div>
-                    
-                    
-                  </div>
 
+                    <div class="col-md-4">
+                        <label for="validationDefault01" class="form-label" style="padding-top: 20px;">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" value="" required>
+                        <div class="invalid-feedback">
+                            Por favor Ingrese un Nombre.
+                        </div>
+                    </div>
 
+                    <div class="col-md-4"></div>
+                    <label for="validationDefault01" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fecha" onblur="calcularEdad()">
+            </div>
 
-                  <button class="btn btn-primary">Guardar</button>
-                </div>
-              </div>
-
-
-            
+            <div class="col-md-4">
+                <label class="form-label">Edad</label>
+                <input type="text" class="form-control" id="edad" aria-label="Disabled input example" disabled>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="edadVal" disabled>
             </div>
 
 
+            <div class="accordion accordion-flush" id="eventos">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Eventos
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+
+
+                            <select class="form-select" aria-label="Default select example" id="ev"
+                                onchange="precioevento()">
+                                <option selected value="">Seleccionar evento</option>
+                                <option value="1">Poesia</option>
+                                <option value="2">Cilcismo</option>
+                                <option value="3">Running</option>
+
+                            </select>
+
+
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="precio" placeholder="Precio evento"
+                                    disabled>
+
+                                <label for="floatingInput">Precio</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="codigoProm" onblur="codigo()">
+
+                                <label for="floatingInput">Codigo Promocional</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+
+                                <input type="text" class="form-control" id="resultado"
+                                    aria-label="Disabled input example" disabled>
+
+                                <label for="floatingInput">Resultado</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="button" onclick="descuentoUsado()">Guardar</button>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="alerta" disabled>
+                <input type="text" class="form-control" id="validacionCod" disabled>
+            </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+
+    <h5 style="text-align: center;">Usa el CODIGO PROMOCIONAL " codigo1 " para un 10% de DESCUENTO, valido para todos
+        los usuarios</h5>
 
 </body>
 
