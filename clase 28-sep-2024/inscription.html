@@ -16,6 +16,13 @@
 
     <script>
 
+        document.getElementById("eventos").style.display = "none";
+        document.getElementById("validacionCod").style.display = "none";
+        document.getElementById("alerta").style.display = "none";
+
+        var codUsed = false
+        var cod = "codigo1";
+
         function calcularEdad() {
             var hoy = new Date();
             var cumpleaños = new Date(document.getElementById("fecha").value);
@@ -51,16 +58,51 @@
         }
 
         function codigo() {
-            var cod = codigo1;
-            var codUsed = false;
+            var codUsed = false
+            var cod = "codigo1";
             var total;
             if (document.getElementById("codigoProm").value == cod && codUsed == false) {
                 total = parseInt(document.getElementById("precio").value) * 0.10;
-                codUsed = true;
+                total = parseInt(document.getElementById("precio").value) - total;
+                var codUsed = true;
             } else {
-                total = document.getElementById("precio");
+                document.getElementById("validacionCod").value="El Codigo Promocional no Existe o ya ha Sido Usado";
+                document.getElementById("validacionCod").style.display = "block";
+                total = parseInt(document.getElementById("precio").value);
             }
             document.getElementById("resultado").value = total;
+
+
+        }
+
+        function descuentoUsado(){
+            var cod = "codigo1";
+            codUsed = false;
+            if (document.getElementById("codigoProm").value == cod && codUsed == false) {
+                codUsed = true;
+                document.getElementById("alerta").value="Se ha inscrito con exito usando un Codigo Promocional";
+                document.getElementById("alerta").style.display = "block";
+            }else if (codUsed==true){
+                document.getElementById("alerta").value="El Codigo Promocional ya ha sido usado";
+                document.getElementById("alerta").style.display = "block";
+            }else if(document.getElementById("codigoProm").value != cod && codUsed == false){
+                document.getElementById("alerta").value="Se ha Inscrito con exito";
+                document.getElementById("alerta").style.display = "block";
+            } else if(document.getElementById("codigoProm").value == null) {
+                document.getElementById("alerta").value="Se ha Inscrito con exito";
+                document.getElementById("alerta").style.display = "block";
+            }else{
+                "El Codigo Promocional no Existe"
+                document.getElementById("alerta").style.display = "none";
+            }
+        }
+
+        function minMaxDocument(){
+            var num = document.getElementById("documento").value;
+            if (num.length>11 || num.length<6) {
+                alert("NO ES UN DOCUMENTO VALIDO");
+            }
+            
         }
 
     </script>
@@ -261,7 +303,7 @@
 
         <div class="col-md-4">
             <label for="validationDefault01" class="form-label">Documento</label>
-            <input type="number" class="form-control" id="validationDefault01" required>
+            <input type="number" class="form-control" id="documento" minlength="7" maxlength="11" onblur="minMaxDocument()" required>
         </div>
 
         <div class="col-md-4">
@@ -303,14 +345,14 @@
                     
                         <div class="form-floating mb-3">
 
-                          <input type="text"   class="form-control" id="precio" placeholder="Precio evento" >
+                          <input type="text"   class="form-control" id="precio" placeholder="Precio evento" disabled>
   
                           <label for="floatingInput">Precio</label>
                         </div>  
 
                         <div class="form-floating mb-3">
 
-                            <input type="text" class="form-control" id="codigoProm" onchange="codigo()">
+                            <input type="text" class="form-control" id="codigoProm" onblur="codigo()">
 
                             <label for="floatingInput">Codigo Promocional</label>
                         </div>
@@ -331,8 +373,13 @@
 
 
 
-            <button class="btn btn-primary">Guardar</button>
-        </div> 
+            <button class="btn btn-primary" type="button" onclick="descuentoUsado()">Guardar</button>
+        </div>
+        <div class="mb-3">
+            
+            <input type="text" class="form-control" id="alerta" disabled>
+            <input type="text" class="form-control" id="validacionCod" disabled>
+          </div> 
     </form>
 
 
