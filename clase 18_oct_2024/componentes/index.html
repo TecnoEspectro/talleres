@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    
+    , initial-scale=1.0">
+    <title>Mi primer componente</title>
+
+    <script src="componentes.js"></script>
+</head>
+<body>
+    <title-ufpso name="edwin" apodo="el profe barrientos">
+
+    </title-ufpso>
+
+    <carrito-boton></carrito-boton>
+
+    <fecha-hoy></fecha-hoy>
+
+
+
+    <template id="miperfil">
+		<p>Esto es un template que muestra mi perfil ufpso!!</p>
+	</template>
+	<script>
+		var perfilufpso = document.getElementById('miperfil').content;
+		var clone = perfilufpso.cloneNode(true);
+		document.body.appendChild(clone);
+	</script>
+
+    <popup-info img="logo.png"  data-text="Empresa de producción de miel">
+
+    </popup-info>
+
+
+    
+
+</body>
+</html>
