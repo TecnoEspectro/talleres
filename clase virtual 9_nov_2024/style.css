@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.contador-contenedor {
+    margin: 20px;
+}
+
+.caja-texto-contenedor {
+    margin: 20px;
+}
+
+.contenedor-imagen img {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.botones-tamano-texto {
+    margin: 20px;
+}
+
+/* Reglas para los títulos */
+h1 {
+    font-size: 24px;
+    color: #333;
+    transition: font-size 0.3s;
+}
+
+#react-root, #vue-root {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

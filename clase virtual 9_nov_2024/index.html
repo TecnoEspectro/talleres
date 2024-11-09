@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador y Funcionalidades</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Contador y Funcionalidades Interactivas</h1>
+
+    <!-- Contador -->
+    <div class="contador-contenedor">
+        <button id="botonContador">Incrementar</button>
+        <span id="valorContador">0</span>
+    </div>
+
+    <!-- Caja de texto reactiva -->
+    <div class="caja-texto-contenedor">
+        <label for="cajaTextoReactiva">Escribe algo:</label>
+        <input type="text" id="cajaTextoReactiva" placeholder="Escribe aquí">
+    </div>
+
+    <!-- Imagen con hover -->
+    <div class="contenedor-imagen">
+        <img id="imagen" src="https://th.bing.com/th/id/R.774fa32275ae578fe8dddfc6b2b9c94d?rik=TueXXCPcVGIYkw&pid=ImgRaw&r=0" alt="Imagen 1" width="500px" height="500px">
+    </div>
+
+    <!-- Botones de tamaño de texto -->
+    <div class="botones-tamano-texto">
+        <button id="aumentarTamanoTexto">Aumentar tamaño</button>
+        <button id="disminuirTamanoTexto">Disminuir tamaño</button>
+    </div>
+
+    <script src="script.js"></script>
+
+    <h1>Ejemplos de Reactividad con React y Vue</h1>
+
+    <!-- Ejemplo de React -->
+    <div id="react-root"></div>
+
+    <!-- Ejemplo de Vue -->
+    <div id="vue-root">
+        <vue-app></vue-app>
+    </div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="react.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="vue.js"></script>
+</body>
+</html>
