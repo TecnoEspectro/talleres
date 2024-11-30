@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "nombre": "God of War",
+        "genero": "Acción",
+        "año": 2005
+    },
+    {
+        "id": 2,
+        "nombre": "Shadow of the Colossus",
+        "genero": "Aventura",
+        "año": 2005
+    },
+    {
+        "id": 3,
+        "nombre": "Final Fantasy X",
+        "genero": "RPG",
+        "año": 2001
+    },
+    {
+        "id": 4,
+        "nombre": "Gran Turismo 4",
+        "genero": "Carreras",
+        "año": 2004
+    },
+    {
+        "id": 5,
+        "nombre": "Metal Gear Solid 3: Snake Eater",
+        "genero": "Sigilo",
+        "año": 2004
+    }
+]
