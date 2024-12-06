@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacion de la PS2</title>
+    <link rel="shortcut icon"
+        href="https://th.bing.com/th/id/R.4180f7ce03e431cdaa62018fb638da3c?rik=PW1E7E%2feh1%2fvKw&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20150201034734%2flogopedia%2fimages%2f1%2f14%2fPlayStation_2_logo_alternate.jpg&ehk=5Oy64fjcH%2bsQwvYiFDC8QJeWFyMHZa9k9j2NPVXB8Ho%3d&risl=&pid=ImgRaw&r=0"
+        type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #1e1e1e;
+            /* Fondo oscuro para el tema PS2 */
+            color: #e0e0e0;
+            /* Texto claro para contraste */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            background-color: #212121;
+            /* Gris oscuro */
+            height: 150px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #b0b0b0;
+            /* Gris claro para texto */
+            font-weight: bold;
+        }
+
+        .image-box {
+            background-color: #2c2c2c;
+            /* Gris oscuro para imagen */
+            height: 200px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #3a3a3a;
+            /* Borde oscuro para destacar */
+        }
+
+        .video-box {
+            background-color: #333333;
+            /* Fondo oscuro para los videos */
+            height: 100px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            /* Color de texto claro */
+        }
+
+        .title-box {
+            margin-bottom: 20px;
+        }
+
+        .image-with-title {
+            text-align: center;
+        }
+
+        .content-left,
+        .content-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-left img,
+        .content-right img {
+            width: 100%;
+            max-width: 100%;
+            /* Cambiado a 100% para mayor flexibilidad */
+            height: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .content-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-options {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            margin-right: 50px;
+        }
+
+        /* Estilos específicos para tarjetas */
+        .card {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            /* Sombra sutil */
+            background-color: #222;
+            /* Fondo oscuro para las tarjetas */
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #66ccff;
+            /* Azul PS2 */
+        }
+
+        /* Ajuste en la tarjeta de "Imagen Grande" */
+        .card-title.center-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #66ccff;
+            /* Azul PS2 */
+        }
+
+        /* Ajustes de los títulos de la sección izquierda */
+        .content-left h3,
+        .content-left h5 {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #66ccff;
+            /* Azul PS2 */
+        }
+
+        /* Estilo para la lista */
+        .content-left ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #d0d0d0;
+            /* Gris claro para lista */
+        }
+
+        /* Fondo y altura de las imágenes */
+        .content-row img {
+            width: 100%;
+            max-width: 100%;
+            /* Flexibilidad en las imágenes */
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Fondo de las tarjetas de la fila 2 */
+        .card-body .video-box,
+        .card-body .image-box {
+            background-color: #3a3a3a;
+            /* Fondo más oscuro para la fila 2 */
+        }
+
+        /* Ajuste en las imágenes dentro de tarjetas */
+        .card-body img {
+            width: 100%;
+            max-width: 100%;
+            /* Flexibilidad total en las imágenes */
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* Alinear opciones de footer */
+        .footer-options i {
+            font-size: 30px;
+            color: #66ccff;
+            /* Azul PS2 */
+            cursor: pointer;
+        }
+
+        .footer-options i:hover {
+            color: #ffffff;
+            /* Efecto de hover en blanco */
+        }
+
+        /* Añadir márgenes en encabezado y footer */
+        header,
+        footer {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 10px 0;
+        }
+
+        /* Fondo propio para el encabezado */
+        header {
+            background-color: #000000;
+            /* Fondo negro para encabezado */
+            color: #66ccff;
+            /* Azul PS2 para texto */
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Fondo propio para el footer */
+        footer {
+            background-color: #000000;
+            /* Fondo negro para footer */
+            color: #66ccff;
+            /* Azul PS2 para texto */
+        }
+
+        /* Estilo para los textos debajo de los títulos */
+        .card-body p,
+        .card-body ul {
+            color: #d0d0d0;
+            /* Gris claro */
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .image-box {
+            background-color: #2c2c2c;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #3a3a3a;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+        }
+
+        .image-container {
+  position: relative;
+  width: 100%; /* Se adapta al tamaño del contenedor */
+  height: 175px; /* Asegura que mantenga el diseño original */
+  overflow: hidden;
+  border-radius: 5%; /* Mantiene los bordes redondeados */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen se vea bien */
+  display: block;
+}
+
+.image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 5%;
+}
+
+.image-container:hover .overlay {
+  opacity: 1; /* Hace visible el texto al pasar el mouse */
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="row p-3 mb-4">
+            <div class="col-12 text-center">
+                <h1>PS2: La Consola Legendaria</h1>
+            </div>
+        </header>
+
+        <!-- Primera fila -->
+        <div class="row mb-4">
+            <!-- Sección Izquierda con títulos y lista de 3 elementos -->
+            <div class="col-md-2">
+                <!-- Card para Título 1 -->
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Con mas de 4.000 Juegos v</h6>
+                    </div>
+                </div>
+
+                <!-- Card para Título 2 -->
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Algunos de sus Clasicos v</h6>
+                    </div>
+                </div>
+
+                <!-- Card para la lista -->
+                <div class="card">
+                    <div class="card-body">
+                        <ul>
+                            <li>Tekken 5</li>
+                            <li>Metal Gear Solid 2</li>
+                            <li>Shadow of the Colossus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Card de Bootstrap con Título y Imagen Grande -->
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title center-title">La Era del PS2</h2>
+                        <div class="image-box"><img
+                                src="https://www.harasdadinco.cl/wp-content/uploads/2024/02/cuanto-costaba-la-ps2-cuando-salio-en-espana.png"
+                                alt=""></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <!-- Card para Título y Texto -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">El legado del PS2</h3>
+                        <p>La PS2 influyó profundamente en la evolución de las consolas de videojuegos. Su éxito cimentó
+                            el camino para futuras generaciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <!-- Card para Imagen Adicional -->
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">El modelo mas vendido del PS2</h3>
+                        <div><img src="https://th.bing.com/th/id/OIP.O3D62O5LeSOsvdbIrgf_ZgAAAA?rs=1&pid=ImgDetMain"
+                                alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda fila: Videos y bloques adicionales -->
+        <div class="row mb-4">
+            <div class="col-md-2">
+                <p>Consulte El Clima</p>
+                <div class="image-container box">
+                  <img src="https://th.bing.com/th/id/OIP.1ZEJeOpmgHzTVRuh9z5ErQHaGL?rs=1&pid=ImgDetMain" alt="" style="border-radius: 5%;">
+                  <div class="overlay">Estamos a 25° Grados</div>
+                </div>
+                <p>192228</p>
+              </div>
+            <div class="col-md-6">
+                <!-- Cuadrícula de videos (2x3) -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="video-box"><iframe width="160" height="115"
+                                src="https://www.youtube.com/embed/Bdj9fM9T6N8?si=JacDNkVcSWca8kWN"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="video-box"><iframe width="160" height="115"
+                                src="https://www.youtube.com/embed/oLV2wLXfoZU?si=SaMaQZjiGIk6LEan"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="video-box"><iframe width="160" height="115"
+                                src="https://www.youtube.com/embed/HIRfw9MjjPk?si=7QiyPCqjDYQEyfiV"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="video-box"><iframe width="160" height="115"
+                                src="https://www.youtube.com/embed/6WxdyKFnCxk?si=zMsnTEa14HieSgGG"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="video-box"><iframe width="160" height="115"
+                                src="https://www.youtube.com/embed/_suxyC3Gd-k?si=SzWXaS_MF_qMcplJ"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="video-box"><iframe width="160" height="115"
+                                src="https://www.youtube.com/embed/8L-gMfTcUEM?si=cexC7Sj7crNk2q1T"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Título con imagen debajo, organizados en columnas -->
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Juegos</h3>
+                        <div class="content-row">
+                            <div class="col-6">
+                                <img src="https://down-br.img.susercontent.com/file/91e7f3a581d66f5972ec7d33adf0e306"
+                                    alt="Imagen">
+                            </div>
+                            <div class="col-6">
+                                <p>La PS2 es una consola con titulos muy variados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Imagen Adicional con texto debajo, organizados en columnas -->
+            <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">SONY</h3>
+                        <div class="content-row">
+                            <div class="col-6">
+                                <p>Esta consola fue la que marco a SONY en el mundo Gaming.</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="https://th.bing.com/th/id/R.e7350e37214974563247629d08dbe5e3?rik=01n7kdpJMPCwgQ&pid=ImgRaw&r=0"
+                                    alt="Imagen">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="row p-3 text-center">
+            <div class="col-12 footer-options">
+                <a href="https://www.facebook.com/Sony/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/PlayStation"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/sony/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
